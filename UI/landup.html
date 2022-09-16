@@ -22,34 +22,44 @@
     <title>Data visual</title>
   </head>
   <body>
+
+    <header class="header1">
+     
+      <img src="./images/Logo.png" alt="image" class="logo">
+     
+    </header>   
+
     <div class="container-main">
       <section class="header">
-       <p class="p2"> Now upload and drag and drop </p><p class="p1"> Proper
-        document and generate dashboards.</p>
+        <p class="p2">Now upload and drag and drop</p>
+        <p class="p1">Proper document and generate dashboards.</p>
       </section>
-      
+
+      <form action="post">
+       <div class="form">
       <div class="image-container">
+        <div class="image">
+          <img
+            src="./images/2290857_upload_upload_file_folder_documents_files_icon.png"
+            alt=""
+            class="file-image"
+          />
+        </div>
 
-      <div class="image">
-        <img
-          src="./images/2290857_upload_upload_file_folder_documents_files_icon.png"
-          alt=""
-        />
+        <div class="container-upload">
+          <input type="file"  id="real-file" hidden="hidden" class="file" />
+           <button type="button" id="custom-btn" class="btn2">choose a file</button>
+           <p class="custom-text">no file choosen</p>
+          <p class="text">Supports XLS,CSV</p>
+        </div>
       </div>
-      <form action=""></form>
-      <div class="container-upload">
-        <input type="file"  id="input" style="color: transparent" class="file" />
-
-        <p class="text">Supports XLS,CSV</p>
-      </div>
-
-    </div>
 
       <div class="button1">
         <button class="button">continue</button>
       </div>
     </div>
-  </form>
+  </div>
+</form>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -59,6 +69,30 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
+    <script src="./index.js"></script>
+    <script>
+      const rBtn = document.getElementById('real-file');
+      const Btn = document.getElementById('custom-btn');
+      let Ctext = document.querySelector(".custom-text");
+
+
+      Btn.addEventListener("click",function(){
+        rBtn.click();
+    
+      })
+
+      rBtn.addEventListener("change",function(){
+        if (rBtn.value){
+          Ctext.innerHTML=rBtn.value.match( /[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+        }else{
+          Ctext.innerHTML= "no file choosen";
+        }
+
+      });
+
+
+
+    </script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
